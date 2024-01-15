@@ -1,0 +1,88 @@
+
+// Program: ICT London
+// Developer's Site: forexroboteasy.com
+// Developer: Forex Robot Easy Team
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <Timeseries\Timeseries.mqh>
+
+// Define global variables
+CTrade trade;
+CTimeSeries series;
+
+// Initialize the trading robot
+int OnInit()
+{
+   // Initialize the trade module
+   trade.Initialization();
+
+   // Initialize the time series module
+   series.Initialization();
+
+   return(INIT_SUCCEEDED);
+}
+
+// Perform market analysis and predict market movement during the Asian trading session
+void AsianSessionAnalysis()
+{
+   // TODO: Implement market analysis code here
+   // Use advanced AI technology and high-level calculations to predict market direction
+   // Set the stage for potential market reversals
+   
+   // Example: Print market analysis results
+   Print('Asian session market analysis completed');
+}
+
+// Identify potential market reversals and profitable opportunities
+void IdentifyOpportunities()
+{
+   // TODO: Implement code to identify potential market reversals and profitable opportunities
+   // Utilize the ICT Judas approach and focus on the Asian trading session's dynamics
+   
+   // Example: Print identified opportunities
+   Print('Opportunities identified');
+}
+
+// Execute the ICT London trading strategy
+void ExecuteICTLondonStrategy()
+{
+   // Perform market analysis during the Asian session
+   AsianSessionAnalysis();
+   
+   // Identify potential market reversals and profitable opportunities
+   IdentifyOpportunities();
+   
+   // TODO: Implement code to execute the ICT London strategy
+   // Place trades based on the identified opportunities and market analysis results
+   
+   // Example: Place trades
+   trade.Buy(1, Symbol(), Ask, 0, NULL);
+   trade.Sell(1, Symbol(), Bid, 0, NULL);
+}
+
+// Handle tick events
+void OnTick()
+{
+   // Execute the ICT London strategy
+   ExecuteICTLondonStrategy();
+}
+
+// Program entry point
+void OnStart()
+{
+   // Set the symbol to EURUSD by default
+   Symbol('EURUSD');
+   
+   // Subscribe to tick events
+   EventSetTimer(1);
+   EventSetTimer(10);
+}
+
+// Program termination
+void OnDeinit(const int reason)
+{
+   // Cleanup
+   trade.Deinit();
+   series.Deinit();
+}
